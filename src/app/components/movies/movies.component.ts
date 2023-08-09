@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IMovie, IMovieResponse } from 'src/app/interfaces/movie';
 import { MovieService } from 'src/app/services/movie.service';
@@ -11,15 +11,20 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MoviesComponent implements OnInit {
 
   movies$: Observable<IMovie[]>;
+  @ViewChild('movieSearchInput') movieSearchInput: ElementRef;
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movies$ = this.getMovies('tem');
+    // this.getMovies('tem');
   }
 
-  getMovies(searchField: string): Observable<IMovie[]>{
-    return this.movieService.getMovies(searchField);
+  getMovies(searchField: string): void{
+    this.movies$ = this.movieService.getMovies(searchField);
+  }
+
+  searchMovies(searchField: string){
+    this.getMovies(searchField);
   }
 
 }

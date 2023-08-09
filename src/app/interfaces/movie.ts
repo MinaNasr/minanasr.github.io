@@ -11,3 +11,9 @@ export interface IMovieResponse {
     totalResults: string;
     Response: string;
 }
+
+export interface searchParams {
+    movie: string;
+    series: string;
+    episode: string;
+}

@@ -1,15 +1,47 @@
+.container {
+  width: 100%;
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.empty {
+  width: 100%;
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .empty h2 {
-    font-size: 1.25rem;
-    color: #f9d3b4;
-    font-family: var(--font-raleway);
-  }
-  
-  .container {
-    width: 100%;
-    margin-top: 3rem;
-  
+  font-size: 1.25rem;
+  color: #f9d3b4;
+  font-family: var(--font-raleway);
+}
+
+.search {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-  }
+    gap: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    
+
+    .search input {
+        position: relative;
+    }
+
+    .search-icon {
+        cursor: pointer;
+        position: absolute;
+        left: 54%;
+        color: black;
+      }
+}
+
+.search select{
+    width: 30%;
+}
