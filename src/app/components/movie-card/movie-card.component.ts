@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IMovie } from 'src/app/interfaces/movie';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
+  @Input() movie: IMovie;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getImage() {
+    return this.movie.Poster !== 'N/A' ? this.movie.Poster : 'https://via.placeholder.com/400';
+    // if(this.movie.Poster == 'N/A') {
+    //     return 'https://via.placeholder.com/600';
+    // } else {
+    //   return this.movie.Poster;
+    // }
   }
 
 }

@@ -11,4 +11,14 @@
     </div>
   </div>
 </div>
-
+<div class="container">
+  <div *ngIf="movies$ | async as movies ; else empty" class="container">
+      <app-movie-card
+        *ngFor="let movie of movies"
+        [movie]="movie"
+      ></app-movie-card>
+    </div>
+  <ng-template #empty class="empty">
+    <h3 class="text-white">Didnt find any Movies</h3>
+  </ng-template>
+</div>
