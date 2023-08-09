@@ -1,9 +1,11 @@
-import { IMovie } from '../interfaces/movie';
+import { IMovie, IMovieDetails } from '../interfaces/movie';
 
 export interface IMoviesState {
-    movies: IMovie[];
+  movies: IMovie[];
+  movie: IMovieDetails;
 }
 
 export const initialMoviesState: IMoviesState = {
-    movies: [] as IMovie[]
+  movies: [] as IMovie[],
+  movie: {} as IMovieDetails,
 };

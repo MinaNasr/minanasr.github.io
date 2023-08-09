@@ -6,14 +6,17 @@ import { IMoviesState, initialMoviesState } from './movies.state';
 export const featureKey = 'movies';
 
 const moviesReducerHandler = createReducer(
-    initialMoviesState,
-    on(fromMovies.getMoviesSuccess, (state, action) => ({
-        ...state,
-        movies: action.data
-    })),
-
+  initialMoviesState,
+  on(fromMovies.getMoviesSuccess, (state, action) => ({
+    ...state,
+    movies: action.data,
+  })),
+  on(fromMovies.getMovieByIdSuccess, (state, action) => ({
+    ...state,
+    movie: action.data,
+  }))
 );
 
 export function moviesReducer(state: IMoviesState, action: Action) {
-    return moviesReducerHandler(state, action);
+  return moviesReducerHandler(state, action);
 }

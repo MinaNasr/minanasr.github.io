@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { IMovie, IMovieResponse } from '../interfaces/movie';
+import { IMovie, IMovieDetails, IMovieResponse } from '../interfaces/movie';
 
 const prefix = '[Movies]';
 
@@ -19,14 +19,14 @@ export const getMoviesSuccess = createAction(
 
 export const getMovieById = createAction(
   `${prefix} Get movie by Id`,
-    props<{
-        id: string
-    }>()
-)
+  props<{
+    movieId: string;
+  }>()
+);
 
 export const getMovieByIdSuccess = createAction(
   `${prefix} Get movie by Id Success`,
-    props<{
-      data: IMovie;
-    }>()
-)
+  props<{
+    data: IMovieDetails;
+  }>()
+);

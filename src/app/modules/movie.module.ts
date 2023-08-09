@@ -10,20 +10,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { moviesEffects } from './store/movies.effects';
 import { AppRoutingModule } from '../app-routing.module';
 
-
-
 @NgModule({
-  declarations: [
-    MoviesComponent,
-    MovieCardComponent,
-    MovieDetailsComponent
-  ],
+  declarations: [MoviesComponent, MovieCardComponent, MovieDetailsComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forFeature('movies', moviesReducer),
-    EffectsModule.forFeature([moviesEffects])
-  ]
+    EffectsModule.forFeature([moviesEffects]),
+  ],
 })
-export class MovieModule { }
+export class MovieModule {}
