@@ -18,4 +18,10 @@ export class MovieService {
       map((res: IMovieResponse)=> res.Search)
     )
   }
+
+  // getMoviesById(id: string): Observable<IMovie>{
+  //   return this.http.get<IMovieResponse>(`${this.API_URL}?i=${id}&apikey=${this.API_KEY}`).pipe(
+  //     map((res: IMovieResponse)=> res.Search)
+  //   )
+  // }
 }

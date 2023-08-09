@@ -6,6 +6,9 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  .cards-container{
+    display: flex;
+  }
 }
 
 .empty {
