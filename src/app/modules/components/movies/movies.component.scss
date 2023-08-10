@@ -6,7 +6,11 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  
+  .groubed-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .empty {
@@ -45,11 +49,14 @@
   width: 30%;
 }
 
-  
 @media screen and (min-width: 600px) {
-  .container{
-    .cards-container{
+  .container {
+    .groubed-cards-year {
+      font-size: 3rem;
+    }
+    .cards-container {
       display: flex;
+      flex-wrap: wrap;
     }
   }
 }
