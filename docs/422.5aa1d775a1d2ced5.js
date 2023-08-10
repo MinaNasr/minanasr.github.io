@@ -1,0 +1,1 @@
+(()=>{"use strict";function n(s){const e=null==s?void 0:s.sort((t,o)=>Number(o.Year)-Number(t.Year)),r=new Map;return null==e||e.forEach(t=>{const o=t.Year;r.has(o)||r.set(o,[]),r.get(o).push(t)}),r}addEventListener("message",({data:s})=>{const e={sortedAndGroupedMovies:n(s)};console.log("response:",e),postMessage(e)})})();
