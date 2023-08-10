@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { IMovie, IMovieDetails, IMovieResponse } from '../interfaces/movie';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class MovieService {
       .get<IMovieResponse>(
         `${this.API_URL}?s=${searchField}&type=${movieType}&apikey=${this.API_KEY}`
       )
-      .pipe(map((res: IMovieResponse) => res.Search));
+      .pipe(map((res: IMovieResponse) => res.Search), catchError(()=> of([])));
   }
 
   getMoviesById(id: string): Observable<IMovieDetails> {
