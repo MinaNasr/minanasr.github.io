@@ -6,6 +6,7 @@ import * as fromMoviesActions from '../../store/movies.actions';
 import { Store, select } from '@ngrx/store';
 import { IMoviesState } from 'src/app/modules/store/movies.state';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { KeyValue } from '@angular/common';
 
 @UntilDestroy()
 @Component({
@@ -16,6 +17,8 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 export class MoviesComponent implements OnInit {
   movies$: Observable<IMovie[]>;
   sortedAndGroupedMap: Map<string, IMovie[]>;
+  movieType: string = 'movie';
+
   @ViewChild('movieSearchInput') movieSearchInput: ElementRef;
 
   constructor(private readonly store: Store<IMoviesState>) {}
@@ -33,7 +36,6 @@ export class MoviesComponent implements OnInit {
         worker.postMessage(movies);
         worker.onmessage = ({ data }) => {
           this.sortedAndGroupedMap = data.sortedAndGroupedMovies;
-          console.log(this.sortedAndGroupedMap);
         };
       } else {
         // Web Workers are not supported in this environment.
@@ -42,7 +44,16 @@ export class MoviesComponent implements OnInit {
     });
   }
 
-  searchMovies(searchField: string) {
-    this.store.dispatch(fromMoviesActions.getMovies({ searchField }));
+  searchMovies(searchField: string, movieType: string): void {
+    this.store.dispatch(
+      fromMoviesActions.getMovies({ searchField, movieType })
+    );
   }
+
+  valueDscOrder = (
+    a: KeyValue<string, IMovie[]>,
+    b: KeyValue<string, IMovie[]>
+  ): number => {
+    return b.key.localeCompare(a.key);
+  };
 }

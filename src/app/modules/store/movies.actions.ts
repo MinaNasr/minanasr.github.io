@@ -7,6 +7,7 @@ export const getMovies = createAction(
   `${prefix} Get movies`,
   props<{
     searchField: string;
+    movieType: string;
   }>()
 );
 

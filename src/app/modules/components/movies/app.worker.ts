@@ -7,7 +7,7 @@ function sortAndGroupMoviesByYear(movies: IMovie[]) {
   const sortedMovies = movies?.sort((a, b) => Number(b.Year) -  Number(a.Year));
   const groupedMovies = new Map<string, IMovie[]>();
 
-  sortedMovies.forEach(movie => {
+  sortedMovies?.forEach(movie => {
     const releaseYear = movie.Year;
     if (!groupedMovies.has(releaseYear)) {
       groupedMovies.set(releaseYear, []);

@@ -14,7 +14,7 @@ export class moviesEffects {
     console.log('helloo');
     return this.actions$.pipe(
       ofType(fromMovies.getMovies),
-      switchMap(({ searchField }) => this.movieService.getMovies(searchField)),
+      switchMap(({ searchField, movieType }) => this.movieService.getMovies(searchField, movieType)),
       map((data: IMovie[]) => fromMovies.getMoviesSuccess({ data }))
     );
   });

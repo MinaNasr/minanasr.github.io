@@ -6,15 +6,12 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  .cards-container{
-    display: flex;
-  }
+  
 }
 
 .empty {
   width: 100%;
   margin-top: 3rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,25 +23,33 @@
 }
 
 .search {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 5px;
-    border-radius: 4px;
-    
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 4px;
 
-    .search input {
-        position: relative;
-    }
+  .search input {
+    position: relative;
+  }
 
-    .search-icon {
-        cursor: pointer;
-        position: absolute;
-        left: 54%;
-        color: black;
-      }
+  .search-icon {
+    cursor: pointer;
+    position: absolute;
+    left: 54%;
+    color: black;
+  }
 }
 
-.search select{
-    width: 30%;
+.search select {
+  width: 30%;
+}
+
+  
+@media screen and (min-width: 600px) {
+  .container{
+    .cards-container{
+      display: flex;
+    }
+  }
 }

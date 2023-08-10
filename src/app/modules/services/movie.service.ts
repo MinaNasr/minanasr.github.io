@@ -12,10 +12,13 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(searchField: string): Observable<IMovie[]> {
+  getMovies(searchField: string, movieType?: string): Observable<IMovie[]> {
+    if(!movieType){
+      movieType = 'movie';
+    }
     return this.http
       .get<IMovieResponse>(
-        `${this.API_URL}?s=${searchField}&apikey=${this.API_KEY}`
+        `${this.API_URL}?s=${searchField}&type=${movieType}&apikey=${this.API_KEY}`
       )
       .pipe(map((res: IMovieResponse) => res.Search));
   }

@@ -6,12 +6,12 @@
         type="text"
         class="form-control"
         #movieSearchInput
-        placeholder=" Search for movie"
+        placeholder="Search for {{movieType}}"
       />
       <i
         aria-hidden="true"
         class="fa fa-search fa-2x fa-thin search-icon"
-        (click)="searchMovies(movieSearchInput.value)"
+        (click)="searchMovies(movieSearchInput.value, movieType)"
       ></i>
       <select
         id="dropdown"
@@ -19,17 +19,20 @@
         class="form-control"
         placeholder="Select Type"
         name="dropdown"
+        (change)="movieType = dropdown.value"
       >
+     
         <option value="movie">movie</option>
         <option value="series">series</option>
         <option value="episode">episode</option>
       </select>
+    
     </div>
   </div>
 </div>
 <div class="container">
   <div *ngIf="movies$ | async as movies; else empty">
-    <div *ngFor="let movie of sortedAndGroupedMap | keyvalue">
+    <div *ngFor="let movie of sortedAndGroupedMap | keyvalue: valueDscOrder">
       <div>{{ movie.key }}</div>
       <div class="cards-container">
         <app-movie-card
