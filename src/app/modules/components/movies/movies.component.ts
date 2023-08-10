@@ -27,7 +27,7 @@ export class MoviesComponent implements OnInit {
     this.initSubscriptionsAndWebWorker();
   }
 
-  private initSubscriptionsAndWebWorker() {
+  private initSubscriptionsAndWebWorker(): void {
     this.movies$ = this.store.pipe(select(fromMoviesSelectors.selectMovies));
     this.movies$.pipe(untilDestroyed(this)).subscribe((movies) => {
       if (typeof Worker !== 'undefined') {

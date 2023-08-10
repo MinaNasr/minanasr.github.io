@@ -16,7 +16,7 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forFeature('movies', moviesReducer),
+    StoreModule.forFeature('moviesStore', moviesReducer),
     EffectsModule.forFeature([moviesEffects]),
   ],
 })

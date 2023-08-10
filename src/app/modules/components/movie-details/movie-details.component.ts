@@ -32,7 +32,7 @@ export class MovieDetailsComponent implements OnInit {
     this.store.dispatch(fromMoviesActions.getMovieById({ movieId }));
   }
 
-  private initSubscriptions() {
+  private initSubscriptions(): void {
     this.movie$ = this.store.pipe(
       untilDestroyed(this),
       select(fromMoviesSelectors.selectMovie)
