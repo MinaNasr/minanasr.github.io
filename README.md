@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Clone the repo to you local machine using this command `git clone https://github.com/MinaNasr/minanasr.github.io.git`
+- Install node modules using `npm install`
+- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -12,7 +14,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build --output-path docs` to build the project. The build artifacts will be stored in the `docs/` directory.
+- Run `ng build --output-path docs --base-href movie-app` to build the project. The build artifacts will be stored in the `docs/` directory.
+- Go to `https://minanasr.github.io/` to see the app live
 
 ## Running unit tests
 
